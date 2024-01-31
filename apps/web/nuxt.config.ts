@@ -37,15 +37,8 @@ export default defineNuxtConfig({
         defaultLocale: 'en',
       },
     ],
-    '@storyblok/nuxt',
     'nuxt-lodash'
   ],
-  storyblok: {
-    accessToken: process.env.NUXT_STORYBLOK_TOKEN,
-    bridge: true,
-    devtools: true,
-    apiOptions: {},
-  },
   image: {
     screens: {
       '2xl': 1536,
