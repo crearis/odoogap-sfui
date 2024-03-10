@@ -6,39 +6,34 @@ export default defineNuxtConfig({
       title: 'Vue Storefront'
     },
   },
+
   delayHydration: {
     mode: 'init'
   },
-  modules: [
-    '@nuxtjs/tailwindcss',
-    '@nuxt/image',
-    'nuxt-delay-hydration',
-    [
-      '@nuxtjs/google-fonts',
-      {
-        families: {
-          'Red Hat Display': [400, 500, 700],
-          'Red Hat Text': [300, 400, 500, 700],
+
+  modules: ['@nuxtjs/tailwindcss', '@nuxt/image', 'nuxt-delay-hydration', [
+    '@nuxtjs/google-fonts',
+    {
+      families: {
+        'Red Hat Display': [400, 500, 700],
+        'Red Hat Text': [300, 400, 500, 700],
+      },
+    },
+  ], '@nuxtjs/fontaine', [
+    '@nuxtjs/i18n',
+    {
+      locales: [
+        {
+          code: 'en',
+          file: 'en.json',
         },
-      },
-    ],
-    '@nuxtjs/fontaine',
-    [
-      '@nuxtjs/i18n',
-      {
-        locales: [
-          {
-            code: 'en',
-            file: 'en.json',
-          },
-        ],
-        lazy: true,
-        langDir: 'lang',
-        defaultLocale: 'en',
-      },
-    ],
-    'nuxt-lodash'
-  ],
+      ],
+      lazy: true,
+      langDir: 'lang',
+      defaultLocale: 'en',
+    },
+  ], 'nuxt-lodash', 'pruvious'],
+
   image: {
     screens: {
       '2xl': 1536,
@@ -50,6 +45,7 @@ export default defineNuxtConfig({
       xs: 376,
     },
   },
+
   build: {
     transpile: [
       'tslib',
@@ -62,26 +58,37 @@ export default defineNuxtConfig({
       '@erpgap/odoo-sdk-api-client'
     ]
   },
+
   devtools: {
     enabled: true,
   },
+
   runtimeConfig: {
     public: {
       odooBaseUrl: ''
     }
   },
+
   routeRules: {
     '/': { swr: true },
     '/_ipx/**': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
     '/icons/**': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
     '/favicon.ico': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
   },
+
   nitro: {
     compressPublicAssets: true,
   },
+
   vite: {
     optimizeDeps: {
       include: ['lodash-es'],
+    },
+  },
+
+  pruvious: {
+    jwt: {
+      secretKey: 'a76MhDKMn3TEkvYyv9X4BuRFxAquQYZJmfiLiFVIM33XYMpzFAGs_6c1W-FFuL53',
     },
   },
 });

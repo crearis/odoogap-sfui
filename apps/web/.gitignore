@@ -7,3 +7,12 @@ node_modules
 .env
 dist
 .DS_Store
+
+# Pruvious dev/build outputs
+.autoload.sql
+.pruvious
+.ssh.*
+/.uploads
+/public/uploads
+pruvious.db
+pruvious.db-journal
